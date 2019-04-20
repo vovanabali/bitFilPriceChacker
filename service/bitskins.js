@@ -133,7 +133,7 @@ module.exports.buyMyStickers = (extraInfo) => {
             });
             const stickersTotalPrice = _.sum(stickersPrices);
             const maxPrice = stickersTotalPrice + itemSuggestPrice;
-            if (parseFloat(item['price']) >= settings.min_item_price && parseFloat(item['price']) <= maxPrice) {
+            if (stickersTotalPrice > 0 && parseFloat(item['price']) >= settings.min_item_price && parseFloat(item['price']) <= maxPrice) {
                 setTimeout(buySkin, 1, item);
                 console.log('Покукаем скин с выгодными стикерами)): ' + _.toString(_.map(extraInfo['sticker_info'], (o) => o.name)));
             } else if (parseFloat(item['price']) >= settings.min_item_price && parseFloat(item['price']) > maxPrice) {
@@ -212,7 +212,7 @@ const checkItemByFullItemInfo = (fullItemInfo, type) => {
                 return !!stickerPrice ? stickerPrice : 0;
             });
             const stickersTotalPrice = _.sum(stickersPrices);
-            if ( (stickersTotalPrice + itemSuggestPrice) >=  parseFloat(fullItemInfo['price'])) {
+            if ( stickersTotalPrice > 0 && (stickersTotalPrice + itemSuggestPrice) >=  parseFloat(fullItemInfo['price'])) {
                 isBuyItem = true;
             }
         } break;
