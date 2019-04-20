@@ -1,0 +1,5 @@
+npm install pusher-client@1.1.0
+npm install axios@0.16.2
+npm i --save lodash
+npm install --save node-telegram-bot-api
+npm install thirty-two
